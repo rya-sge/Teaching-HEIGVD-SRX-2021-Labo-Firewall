@@ -110,7 +110,7 @@ Pour établir la table de filtrage, voici les **conditions à respecter** dans l
 # Regles de filtrage
 
 <ol type="a" start="1">
-  <li>En suivant la méthodologie vue en classe, établir la table de filtrage avec précision en spécifiant la source et la destination, le type de trafic (TCP/UDP/ICMP/any), les ports sources et destinations ainsi que l'action désirée (**Accept** ou **Drop**, éventuellement **Reject**).
+  <li>En suivant la méthodologie vue en classe, établir la table de filtrage avec précision en spécifiant la source et la destination, le type de trafic (TCP/UDP/ICMP/any), les ports sources et destinations ainsi que l'action désirée (<b>Accept</b> ou <b>Drop</b>, éventuellement <b>Reject</b>).
   </li>                                  
 </ol>
 
@@ -494,7 +494,7 @@ LIVRABLE : Commandes iptables
 ## Règles pour le protocole ssh
 
 <ol type="a" start="8">
-  <li>Créer et appliquer la règle adéquate pour que les **conditions 6 et 7 du cahier des charges** soient respectées. 
+  <li>Créer et appliquer la règle adéquate pour que les <b>conditions 6 et 7 du cahier des charges</b> soient respectées. 
   </li>                                  
 </ol>
 
@@ -521,7 +521,7 @@ ssh root@192.168.200.3
 ---
 
 <ol type="a" start="9">
-  <li>Expliquer l'utilité de **ssh** sur un serveur. 
+  <li>Expliquer l'utilité de <b>ssh</b> sur un serveur. 
   </li>                                  
 </ol>
 
