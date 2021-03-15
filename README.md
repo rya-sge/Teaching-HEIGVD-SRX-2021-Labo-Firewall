@@ -1,4 +1,4 @@
-# Teaching-HEIGVD-SRX-2020-Laboratoire-Firewall
+# Teaching-HEIGVD-SRX-2021-Laboratoire-Firewall
 
 **ATTENTION : Commencez par créer un Fork de ce repo et travaillez sur votre fork.**
 
@@ -43,7 +43,7 @@ Par la suite, la mise en pratique d’un pare-feu permettra d’approfondir la c
 
 ## Auteurs
 
-Ce texte se réfère au laboratoire « Pare-feu » à suivre dans le cadre du cours Sécurité des Réseaux, 2020, version 7.0.  Au cours du temps, il a été rédigé, modifié et amélioré par les co-auteurs suivants : Gilles-Etienne Vallat, Alexandre Délez, Olivia Manz, Patrick Mast, Christian Buchs, Sylvain Pasini, Vincent Pezzi, Yohan Martini, Ioana Carlson, Abraham Rubinstein et Frédéric Saam.
+Ce texte se réfère au laboratoire « Pare-feu » à suivre dans le cadre du cours Sécurité des Réseaux, 2021, version 7.0.  Au cours du temps, il a été rédigé, modifié et amélioré par les co-auteurs suivants : Gilles-Etienne Vallat, Alexandre Délez, Olivia Manz, Patrick Mast, Christian Buchs, Sylvain Pasini, Vincent Pezzi, Yohan Martini, Ioana Carlson, Abraham Rubinstein et Frédéric Saam.
 
 ## Echéance 
 
