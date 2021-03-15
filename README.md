@@ -61,7 +61,7 @@ Notre réseau local (LAN) sera connecté à Internet (WAN) au travers d’un par
 
 Par conséquent, nous distinguons clairement trois sous-réseaux : 
 
-- Internet (WAN), le réseau de l'école servira de WAN,
+- Internet (WAN), le réseau de l'école ou votre propre réseau servira de WAN,
 - le réseau local (LAN),
 - la zone démilitarisée (DMZ). 
 
@@ -94,7 +94,7 @@ Le but du **LAN** est de fournir aux utilisateurs de votre réseau un accès à 
 
 La **DMZ** est un réseau réservé aux serveurs que l'on veut rendre accessibles depuis l'extérieur et l’intérieur de notre réseau. Par exemple, si nous voulons publier un site web que l'on héberge, il faut accepter des connexions sur le serveur web; dans ce cas, nous ne pouvons pas le placer dans le LAN, cela constituerait un risque. Nous accepterons donc les connexions entrantes dans la DMZ, mais seulement pour les services que l'on désire offrir. Le serveur Web situé dans la DMZ est simulé par la machine **Server\_In\_DMZ**.
 
-Le **WAN** n'est que l'accès à Internet. Il est connecté au réseau de l'école à travers le système de réseau fourni par Docker.
+Le **WAN** n'est que l'accès à Internet. Il est connecté au réseau de l'école ou à votre propre à travers le système de réseau fourni par Docker.
 
 Pour établir la table de filtrage, voici les **conditions à respecter** dans le cadre de ce laboratoire :
 
