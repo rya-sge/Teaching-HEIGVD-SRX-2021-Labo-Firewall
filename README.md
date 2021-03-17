@@ -294,7 +294,7 @@ Une règle permet d’autoriser ou d’interdire une connexion. `iptables` met �
 - Le tableau filter permet d’appliquer des règles de filtrage propres d’un firewall
 - Le tableau nat permet de paramétrer la translation d’adresses
 
-`iptables` vous permet la configuration de pare-feux avec et sans état. **Pour ce laboratoire, vous allez utiliser le mode avec état**. 
+`iptables` vous permet la configuration de pare-feux avec et sans état. **Pour ce laboratoire, vous avez le choix d'utiliser le mode avec état, sans état ou une combinaison des deux**. 
 
 Chaque règle doit être tapée sur une ligne séparée. Référez-vous à la théorie et appuyez-vous sur des informations trouvées sur Internet pour traduire votre tableau de règles de filtrage en commandes `iptables`. Les règles prennent effet immédiatement après avoir appuyé sur &lt;enter>\. Vous pouvez donc les tester au fur et à mesure que vous les configurez.
 
