@@ -212,6 +212,7 @@ ping 192.168.200.3
 ---
 
 **LIVRABLE : capture d'écran de votre tentative de ping.**  
+![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/1_ping.JPG)
 
 ---
 
@@ -252,6 +253,22 @@ ping 192.168.100.3
 
 **LIVRABLES : captures d'écran des routes des deux machines et de votre nouvelle tentative de ping.**
 
+Route client :
+
+![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_client_route.png)
+
+Route serveur
+
+![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_serveur_route.png)
+
+Ping effectué
+
+![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_ping.JPG)
+
+
+
+
+
 ---
 
 La communication est maintenant possible entre les deux machines. Pourtant, si vous essayez de communiquer depuis le client ou le serveur vers l'Internet, ça ne devrait pas encore fonctionner sans une manipulation supplémentaire au niveau du firewall ou sans un service de redirection ICMP. Vous pouvez le vérifier avec un ping depuis le client ou le serveur vers une adresse Internet. 
@@ -267,6 +284,10 @@ Si votre ping passe mais que la réponse contient un _Redirect Host_, ceci indiq
 ---
 
 **LIVRABLE : capture d'écran de votre ping vers l'Internet. Un ping qui ne passe pas ou des réponses containant des _Redirect Host_ sont acceptés.**
+
+
+
+![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/3_ping_internet.png)
 
 ---
 
@@ -358,14 +379,14 @@ LIVRABLE : Commandes iptables
 
 ```bash
 ping 8.8.8.8
-``` 	            
+```
 Faire une capture du ping.
 
 Vérifiez aussi la route entre votre client et le service `8.8.8.8`. Elle devrait partir de votre client et traverser votre Firewall :
 
 ```bash
 traceroute 8.8.8.8
-``` 	            
+```
 
 
 ---
