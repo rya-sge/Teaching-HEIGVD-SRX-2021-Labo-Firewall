@@ -212,7 +212,7 @@ ping 192.168.200.3
 ---
 
 **LIVRABLE : capture d'écran de votre tentative de ping.**  
-![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/1_ping.JPG)
+![](./figures/1_ping.JPG)
 
 ---
 
@@ -255,15 +255,15 @@ ping 192.168.100.3
 
 Route client :
 
-![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_client_route.png)
+![](./figures/2_client_route.png)
 
 Route serveur
 
-![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_serveur_route.png)
+![](./figures/2_serveur_route.png)
 
 Ping effectué
 
-![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/2_ping.JPG)
+![](./figures/2_ping.JPG)
 
 
 
@@ -287,7 +287,7 @@ Si votre ping passe mais que la réponse contient un _Redirect Host_, ceci indiq
 
 
 
-![](/home/ryan/Documents/srxGit2/Teaching-HEIGVD-SRX-2021-Labo-Firewall/figures/3_ping_internet.png)
+![](./figures/3_ping_internet.png)
 
 ---
 
