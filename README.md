@@ -1,5 +1,7 @@
 # Teaching-HEIGVD-SRX-2021-Laboratoire-Firewall
 
+**Travail à réaliser en équipes de deux personnes.**
+
 **ATTENTION : Commencez par créer un Fork de ce repo et travaillez sur votre fork.**
 
 Clonez le repo sur votre machine. Vous retrouverez notamment dans ce repo les ficher `Dockerfile` et `docker-compose.yml` indispensables pour l'ajout des conteneurs et configuration du réseau.
