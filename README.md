@@ -125,15 +125,33 @@ _Lors de la définition d'une zone, spécifier l'adresse du sous-réseau IP avec
 
 **LIVRABLE : Remplir le tableau**
 
-| Adresse IP source | Adresse IP destination | Type | Port src | Port dst | Action |
-| :---:             | :---:                  | :---:| :------: | :------: | :----: |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
-|                   |                        |      |          |          |        |
+|      Adresse IP source      |   Adresse IP destination    | Type | Port src | Port dst | Action | FLAG  |
+| :-------------------------: | :-------------------------: | :--: | :------: | :------: | :----: | ----- |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | UDP  |    *     |    53    | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | UDP  |    53    |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |    53    | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |    53    |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | ICMP |    *     |    *     | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT |       |
+|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT | REPLY |
+|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT | REPLY |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |    80    | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |   8080   | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |   8080   |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |   443    | ACCEPT |       |
+|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |   443    |    *     | ACCEPT |       |
+|   192.168.100.0/24 (LAN)    | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |       |
+| 192.168.200.3 (SERVEUR WEB) |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |       |
+|      172.17.0.2 (WAN)       | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |       |
+| 192.168.200.3 (SERVEUR WEB) |      172.17.0.2 (WAN)       | TCP  |    80    |    *     | ACCEPT |       |
+| 192.168.100.3 (CLIENT LAN)  | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    22    | ACCEPT |       |
+| 192.168.200.3 (SERVEUR WEB) | 192.168.100.3 (CLIENT LAN)  | TCP  |    22    |    *     | ACCEPT |       |
+| 192.168.100.3 (CLIENT LAN)  |  192.168.100.2 (FIREWALL)   | TCP  |    *.    |    22    | ACCEPT |       |
+|  192.168.100.2 (FIREWALL)   | 192.168.100.3 (CLIENT LAN)  | TCP  |    22    |    *     | ACCEPT |       |
+|              *              |              *              |  *   |    *     |    *     |  DROP  |       |
 
 ---
 
