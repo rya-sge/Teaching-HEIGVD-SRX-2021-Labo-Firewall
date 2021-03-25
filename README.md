@@ -1,5 +1,7 @@
 # Teaching-HEIGVD-SRX-2021-Laboratoire-Firewall
 
+Auteurs : Ryan Sauge, Dylan Canton
+
 **Travail à réaliser en équipes de deux personnes.**
 
 **ATTENTION : Commencez par créer un Fork de ce repo et travaillez sur votre fork.**
@@ -125,33 +127,33 @@ _Lors de la définition d'une zone, spécifier l'adresse du sous-réseau IP avec
 
 **LIVRABLE : Remplir le tableau**
 
-|      Adresse IP source      |   Adresse IP destination    | Type | Port src | Port dst | Action | FLAG  |
-| :-------------------------: | :-------------------------: | :--: | :------: | :------: | :----: | ----- |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | UDP  |    *     |    53    | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | UDP  |    53    |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |    53    | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |    53    |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | ICMP |    *     |    *     | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT |       |
-|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT | REPLY |
-|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT | REPLY |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |    80    | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |   8080   | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |   8080   |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    |      172.17.0.2 (WAN)       | TCP  |    *     |   443    | ACCEPT |       |
-|      172.17.0.2 (WAN)       |   192.168.100.0/24 (LAN)    | TCP  |   443    |    *     | ACCEPT |       |
-|   192.168.100.0/24 (LAN)    | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |       |
-| 192.168.200.3 (SERVEUR WEB) |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |       |
-|      172.17.0.2 (WAN)       | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |       |
-| 192.168.200.3 (SERVEUR WEB) |      172.17.0.2 (WAN)       | TCP  |    80    |    *     | ACCEPT |       |
-| 192.168.100.3 (CLIENT LAN)  | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    22    | ACCEPT |       |
-| 192.168.200.3 (SERVEUR WEB) | 192.168.100.3 (CLIENT LAN)  | TCP  |    22    |    *     | ACCEPT |       |
-| 192.168.100.3 (CLIENT LAN)  |  192.168.100.2 (FIREWALL)   | TCP  |    *.    |    22    | ACCEPT |       |
-|  192.168.100.2 (FIREWALL)   | 192.168.100.3 (CLIENT LAN)  | TCP  |    22    |    *     | ACCEPT |       |
-|              *              |              *              |  *   |    *     |    *     |  DROP  |       |
+|      Adresse IP source      |   Adresse IP destination    | Type | Port src | Port dst | Action |
+| :-------------------------: | :-------------------------: | :--: | :------: | :------: | :----: |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | UDP  |    *     |    53    | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | UDP  |    53    |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | TCP  |    *     |    53    | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | TCP  |    53    |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | ICMP |    *     |    *     | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT |
+|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |
+|   192.168.200.0/24 (DMZ)    |   192.168.100.0/24 (LAN)    | ICMP |    *     |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |   192.168.200.0/24 (DMZ)    | ICMP |    *     |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | TCP  |    *     |    80    | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | TCP  |    *     |   8080   | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | TCP  |   8080   |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    |        interface WAN        | TCP  |    *     |   443    | ACCEPT |
+|        interface WAN        |   192.168.100.0/24 (LAN)    | TCP  |   443    |    *     | ACCEPT |
+|   192.168.100.0/24 (LAN)    | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |
+| 192.168.200.3 (SERVEUR WEB) |   192.168.100.0/24 (LAN)    | TCP  |    80    |    *     | ACCEPT |
+|        interface WAN        | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    80    | ACCEPT |
+| 192.168.200.3 (SERVEUR WEB) |        interface WAN        | TCP  |    80    |    *     | ACCEPT |
+| 192.168.100.3 (CLIENT LAN)  | 192.168.200.3 (SERVEUR WEB) | TCP  |    *     |    22    | ACCEPT |
+| 192.168.200.3 (SERVEUR WEB) | 192.168.100.3 (CLIENT LAN)  | TCP  |    22    |    *     | ACCEPT |
+| 192.168.100.3 (CLIENT LAN)  |          FIREWALL           | TCP  |    *.    |    22    | ACCEPT |
+|  192.168.100.2 (FIREWALL)   |          FIREWALL           | TCP  |    22    |    *     | ACCEPT |
+|              *              |              *              |  *   |    *     |    *     |  DROP  |
 
 ---
 
@@ -283,10 +285,6 @@ Ping effectué
 
 ![](./figures/2_ping.JPG)
 
-
-
-
-
 ---
 
 La communication est maintenant possible entre les deux machines. Pourtant, si vous essayez de communiquer depuis le client ou le serveur vers l'Internet, ça ne devrait pas encore fonctionner sans une manipulation supplémentaire au niveau du firewall ou sans un service de redirection ICMP. Vous pouvez le vérifier avec un ping depuis le client ou le serveur vers une adresse Internet. 
@@ -302,8 +300,6 @@ Si votre ping passe mais que la réponse contient un _Redirect Host_, ceci indiq
 ---
 
 **LIVRABLE : capture d'écran de votre ping vers l'Internet. Un ping qui ne passe pas ou des réponses containant des _Redirect Host_ sont acceptés.**
-
-
 
 ![](./figures/3_ping_internet.png)
 
@@ -368,6 +364,14 @@ iptables-restore < iptables.conf
 
 ## Tests des connections et exemple de l'application d'une règle
 
+Tout d'abord, nous établissons les politiques générales qui sont de tout bloquer par défaut (**condition 8 du cahier des charges**) : 
+
+```
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+```
+
 Pour chaque manipulation, il est important de **garder les règles déjà créées**, les nouvelles sont ajoutées aux existantes. 
 
 Pour commencer sur une base fonctionnelle, nous allons configurer le pare-feu pour accepter le **ping** dans certains cas. Cela va permettre de tester la connectivité du réseau.
@@ -384,7 +388,17 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+#LAN vers DMZ et réponse
+iptables -A FORWARD -s  192.168.100.0/24 -d 192.168.200.0/24 -p icmp --icmp-type 8 -j ACCEPT
+iptables -A FORWARD -s  192.168.200.0/24 -d 192.168.100.0/24 -p icmp --icmp-type 0 -j ACCEPT
+
+#LAN vers WAN et réponse
+iptables -A FORWARD -s  192.168.100.0/24 -o eth0 -p icmp --icmp-type 8 -j ACCEPT
+iptables -A FORWARD -i eth0 -d 192.168.100.0/24 -p icmp --icmp-type 0 -j ACCEPT
+
+#DMZ vers LAN et réponse
+iptables -A FORWARD -s  192.168.200.0/24 -d 192.168.100.0/24 -p icmp --icmp-type 8 -j ACCEPT
+iptables -A FORWARD -s  192.168.100.0/24 -d 192.168.200.0/24 -p icmp --icmp-type 0 -j ACCEPT
 ```
 ---
 
@@ -410,29 +424,44 @@ traceroute 8.8.8.8
 ---
 **LIVRABLE : capture d'écran du traceroute et de votre ping vers l'Internet. Il ne devrait pas y avoir des _Redirect Host_ dans les réponses au ping !**
 
+**Ping du LAN vers le WAN  :**
+
+![image-20210325152716976](./figures/image-20210325152716976.png)
+
+
+
+**Traceroute du LAN vers le WAN :**
+
+Bien que le ping fonctionne, le traceroute n'affiche aucun nœud. Cela peut être dû à docker. 
+
+Cependant, en spécifiant le protocole ICMP dans la commande, traceroute aboutis au serveur 8.8.8.8
+
+```
+traceroute -I 8.8.8.8
+```
+
+![image-20210325154357917](./figures/image-20210325154357917.png)
+
 ---
 
 <ol type="a" start="3">
   <li>Testez ensuite toutes les règles, depuis le Client_in_LAN puis depuis le serveur Web (Server_in_DMZ) et remplir le tableau suivant : 
   </li>                                  
 </ol>
+| De Client\_in\_LAN à | OK/KO | Commentaires et explications                                 |
+| :------------------- | :---: | :----------------------------------------------------------- |
+| Interface DMZ du FW  |  KO   | Ajout d'une règle pour l'IP de l'interface si on veut que ca marche |
+| Interface LAN du FW  |  KO   | Ajout d'une règle pour l'IP de l'interface si on veut que ca marche |
+| Client LAN           |  OK   | -                                                            |
+| Serveur WAN          |  OK   | -                                                            |
 
 
-| De Client\_in\_LAN à | OK/KO | Commentaires et explications |
-| :---                 | :---: | :---                         |
-| Interface DMZ du FW  |       |                              |
-| Interface LAN du FW  |       |                              |
-| Client LAN           |       |                              |
-| Serveur WAN          |       |                              |
-
-
-| De Server\_in\_DMZ à | OK/KO | Commentaires et explications |
-| :---                 | :---: | :---                         |
-| Interface DMZ du FW  |       |                              |
-| Interface LAN du FW  |       |                              |
-| Serveur DMZ          |       |                              |
-| Serveur WAN          |       |                              |
-
+| De Server\_in\_DMZ à | OK/KO | Commentaires et explications                                 |
+| :------------------- | :---: | :----------------------------------------------------------- |
+| Interface DMZ du FW  |  KO   | Ajout d'une règle pour l'IP de l'interface si on veut que ca marche |
+| Interface LAN du FW  |  KO   | Ajout d'une règle pour l'IP de l'interface si on veut que ca marche |
+| Serveur DMZ          |  OK   | -                                                            |
+| Serveur WAN          |  KO   | Règle déjà ajoutée pour interdire le ping de la DMZ vers le WAN |
 
 ## Règles pour le protocole DNS
 
@@ -451,6 +480,8 @@ ping www.google.com
 
 **LIVRABLE : capture d'écran de votre ping.**
 
+![image-20210325154523779](./figures/image-20210325154523779.png)
+
 ---
 
 * Créer et appliquer la règle adéquate pour que la **condition 1 du cahier des charges** soit respectée.
@@ -460,7 +491,13 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+#LAN vers WAN (UDP) et réponse
+iptables -A FORWARD -p udp -s 192.168.100.0/24 -o eth0 --dport 53 -j ACCEPT
+iptables -A FORWARD -p udp -i eth0  --sport 53 -d 192.168.100.0/24  -j ACCEPT
+
+#LAN vers WAN (TCP) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 -o eth0 --dport 53 -j ACCEPT
+iptables -A FORWARD -p tcp -i eth0  --sport 53 -d 192.168.100.0/24  -j ACCEPT
 ```
 
 ---
@@ -474,6 +511,8 @@ LIVRABLE : Commandes iptables
 
 **LIVRABLE : capture d'écran de votre ping.**
 
+![image-20210325155701157](./figures/image-20210325155701157.png)
+
 ---
 
 <ol type="a" start="6">
@@ -484,7 +523,7 @@ LIVRABLE : Commandes iptables
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
+**LIVRABLE : ** Le service DNS utilise le port 53, ce port n'étant pas autorisé avant d'avoir établis la règle, il était alors impossible pour le client de résoudre le nom de domaine. 
 
 ---
 
@@ -501,10 +540,25 @@ wget http://www.heig-vd.ch
 
 Commandes iptables :
 
+*Nous avons configuré ces règles avec état car on estime important d'un point de vue sécuritaire qu'un serveur web ne puisse pas initier de connexion avec le client.*
+
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+#LAN vers WAN (HTTP) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 -o eth0 --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A FORWARD -p tcp -i eth0 --sport 80 -d 192.168.100.0/24 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+#LAN vers WAN (HTTP) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 -o eth0 --dport 8080 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A FORWARD -p tcp -i eth0 --sport 8080 -d 192.168.100.0/24 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+#LAN vers WAN (HTTPS) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 -o eth0 --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A FORWARD -p tcp -i eth0 --sport 443 -d 192.168.100.0/24 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 ```
 
 ---
@@ -516,7 +570,13 @@ Commandes iptables :
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+#LAN vers Serveur Web (DMZ) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.0/24 -d 192.168.200.3 --dport 80  -j ACCEPT
+iptables -A FORWARD -p tcp -s 192.168.200.3 --sport 80 -d 192.168.100.0/24  -j ACCEPT
+
+#WAN vers Serveur Web (DMZ) et réponse
+iptables -A FORWARD -p tcp -i eth0 -d 192.168.200.3 --dport 80  -j ACCEPT
+iptables -A FORWARD -p tcp -s 192.168.200.3  --sport 80 -o eth0 -j ACCEPT
 ```
 ---
 
@@ -529,8 +589,9 @@ LIVRABLE : Commandes iptables
 
 **LIVRABLE : capture d'écran.**
 
----
+![image-20210325162719252](./figures/image-20210325162719252.png)
 
+---
 
 ## Règles pour le protocole ssh
 
@@ -538,13 +599,22 @@ LIVRABLE : Commandes iptables
   <li>Créer et appliquer la règle adéquate pour que les <b>conditions 6 et 7 du cahier des charges</b> soient respectées. 
   </li>                                  
 </ol>
-
 Commandes iptables :
+
+*Nous avons configuré ces règles avec état car on estime important d'un point de vue sécuritaire que seul le client ssh puisse initier la connexion. On évite ainsi que le serveur web, présente dans la DMZ ou le Firewall ne puissent initier la connexion ssh avec le client(et donc le contrôler à distance).*
 
 ---
 
 ```bash
-LIVRABLE : Commandes iptables
+#Client LAN vers Serveur Web (DMZ) et réponse
+iptables -A FORWARD -p tcp -s 192.168.100.3 -d 192.168.200.3 --dport 22 -m conntrack  --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A FORWARD -p tcp -s 192.168.200.3 --sport 22 -d 192.168.100.3 -m conntrack  --ctstate ESTABLISHED -j ACCEPT
+
+#Client LAN vers Firewall et réponse
+iptables -A INPUT -p tcp -s 192.168.100.3 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+iptables -A OUTPUT -p tcp --sport 22 -d 192.168.100.3 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 ```
 
 ---
@@ -559,6 +629,16 @@ ssh root@192.168.200.3
 
 **LIVRABLE : capture d'écran de votre connexion ssh.**
 
+**Connexion SSH du lient LAN vers le serveur Web (DMZ) :**
+
+![image-20210325182928957](./figures/image-20210325182928957.png)
+
+
+
+**Connexion SSH du client LAN vers le Firewall :**
+
+![image-20210325184138057](./figures/image-20210325184138057.png)
+
 ---
 
 <ol type="a" start="9">
@@ -569,7 +649,9 @@ ssh root@192.168.200.3
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
+**LIVRABLE : ** SSH permet d'établir une connexion entre le client et le serveur de manière sécurisée. L'avantage est donc de pouvoir configurer et administrer le serveur à distance.
+
+Les données sont chiffrées et le protocole est mieux sécurisée que par exemple avec telnet. On évite aussi dans ce cas la des attaques de type MITM car le serveur s'authentifie auprès du client et le client s'authentifie auprès du serveur.
 
 ---
 
@@ -577,12 +659,10 @@ ssh root@192.168.200.3
   <li>En général, à quoi faut-il particulièrement faire attention lors de l'écriture des règles du pare-feu pour ce type de connexion ? 
   </li>                                  
 </ol>
-
-
 ---
 **Réponse**
 
-**LIVRABLE : Votre réponse ici...**
+**LIVRABLE : ** Il faut écrire les règles de telle manière que seul le client concerné puisse établir une connexion. Sinon, il y a le risque que des pirates tentent une attaque brute-force sur le serveur pour trouver une paire utilisateur/mot de passe valide.
 
 ---
 
@@ -598,5 +678,7 @@ A présent, vous devriez avoir le matériel nécessaire afin de reproduire la ta
 ---
 
 **LIVRABLE : capture d'écran avec toutes vos règles.**
+
+![image-20210325185925550](./figures/image-20210325185925550.png)
 
 ---
