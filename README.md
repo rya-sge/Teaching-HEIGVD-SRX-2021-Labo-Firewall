@@ -448,6 +448,7 @@ traceroute -I 8.8.8.8
   <li>Testez ensuite toutes les règles, depuis le Client_in_LAN puis depuis le serveur Web (Server_in_DMZ) et remplir le tableau suivant : 
   </li>                                  
 </ol>
+
 | De Client\_in\_LAN à | OK/KO | Commentaires et explications                                 |
 | :------------------- | :---: | :----------------------------------------------------------- |
 | Interface DMZ du FW  |  KO   | Ajout d'une règle pour l'IP de l'interface si on veut que ca marche |
@@ -523,7 +524,7 @@ iptables -A FORWARD -p tcp -i eth0  --sport 53 -d 192.168.100.0/24  -j ACCEPT
 ---
 **Réponse**
 
-**LIVRABLE : ** Le service DNS utilise le port 53, ce port n'étant pas autorisé avant d'avoir établis la règle, il était alors impossible pour le client de résoudre le nom de domaine. 
+**LIVRABLE :** Le service DNS utilise le port 53, ce port n'étant pas autorisé avant d'avoir établis la règle, il était alors impossible pour le client de résoudre le nom de domaine. 
 
 ---
 
@@ -649,7 +650,7 @@ ssh root@192.168.200.3
 ---
 **Réponse**
 
-**LIVRABLE : ** SSH permet d'établir une connexion entre le client et le serveur de manière sécurisée. L'avantage est donc de pouvoir configurer et administrer le serveur à distance.
+**LIVRABLE :** SSH permet d'établir une connexion entre le client et le serveur de manière sécurisée. L'avantage est donc de pouvoir configurer et administrer le serveur à distance.
 
 Les données sont chiffrées et le protocole est mieux sécurisée que par exemple avec telnet. On évite aussi dans ce cas la des attaques de type MITM car le serveur s'authentifie auprès du client et le client s'authentifie auprès du serveur.
 
@@ -662,7 +663,7 @@ Les données sont chiffrées et le protocole est mieux sécurisée que par exemp
 ---
 **Réponse**
 
-**LIVRABLE : ** Il faut écrire les règles de telle manière que seul le client concerné puisse établir une connexion. Sinon, il y a le risque que des pirates tentent une attaque brute-force sur le serveur pour trouver une paire utilisateur/mot de passe valide.
+**LIVRABLE :** Il faut écrire les règles de telle manière que seul le client concerné puisse établir une connexion. Sinon, il y a le risque que des pirates tentent une attaque brute-force sur le serveur pour trouver une paire utilisateur/mot de passe valide.
 
 ---
 
